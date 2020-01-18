@@ -22,7 +22,7 @@ public class Login extends AppCompatActivity {
 
     EditText mEmail,mPassword;
     Button mLoginBtn;
-    Button mCreateBtn;
+    TextView mCreateBtn;
     FirebaseAuth fAuth;
     ProgressBar progressBar;
 
@@ -34,7 +34,7 @@ public class Login extends AppCompatActivity {
         mEmail = findViewById(R.id.Email);
         mPassword = findViewById(R.id.Password);
         mLoginBtn = findViewById(R.id.login_btn);
-        mCreateBtn = findViewById(R.id.reg_log_btn);
+        mCreateBtn = findViewById(R.id.createText);
 
         fAuth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar);
@@ -69,11 +69,11 @@ public class Login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Toast.makeText(Login.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
                         }else{
 
                             Toast.makeText(Login.this, "Error  " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                            progressBar.setVisibility(View.GONE);
+
                         }
                     }
                 });
@@ -81,7 +81,7 @@ public class Login extends AppCompatActivity {
                 mCreateBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(getApplicationContext(), Register.class));
+                        startActivity(new Intent(getApplicationContext(),Register.class));
                     }
                 });
             }
