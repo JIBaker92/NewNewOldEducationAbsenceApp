@@ -22,7 +22,7 @@ public class Login extends AppCompatActivity {
 
     EditText mEmail,mPassword;
     Button mLoginBtn;
-    TextView mCreateBtn;
+    Button mCreateBtn;
     FirebaseAuth fAuth;
     ProgressBar progressBar;
 
@@ -34,7 +34,7 @@ public class Login extends AppCompatActivity {
         mEmail = findViewById(R.id.Email);
         mPassword = findViewById(R.id.Password);
         mLoginBtn = findViewById(R.id.login_btn);
-        mCreateBtn = findViewById(R.id.createText);
+        mCreateBtn = findViewById(R.id.reg_log_btn);
 
         fAuth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar);

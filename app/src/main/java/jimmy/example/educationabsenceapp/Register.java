@@ -24,7 +24,7 @@ public class Register extends AppCompatActivity {
 
     EditText mFullName,mEmail,mPassword;
     Button mRegisterBtn;
-    TextView mLoginBtn;
+    Button mLoginBtn;
     FirebaseAuth fAuth;
     ProgressBar progressBar;
 
@@ -37,7 +37,7 @@ public class Register extends AppCompatActivity {
         mEmail = findViewById(R.id.Email);
         mPassword = findViewById(R.id.Password);
         mRegisterBtn = findViewById(R.id.reg_btn);
-        mLoginBtn = findViewById(R.id.createText);
+        mLoginBtn = findViewById(R.id.log_btn);
 
         fAuth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar);
