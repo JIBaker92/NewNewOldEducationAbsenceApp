@@ -24,7 +24,7 @@ public class Register extends AppCompatActivity {
 
     EditText mFullName,mEmail,mPassword;
     Button mRegisterBtn;
-    Button mLoginBtn;
+    Button mLogRegBtn;
     FirebaseAuth fAuth;
     ProgressBar progressBar;
 
@@ -37,7 +37,7 @@ public class Register extends AppCompatActivity {
         mEmail = findViewById(R.id.Email);
         mPassword = findViewById(R.id.Password);
         mRegisterBtn = findViewById(R.id.reg_btn);
-        mLoginBtn = findViewById(R.id.log_btn);
+        mLogRegBtn = findViewById(R.id.log_btn);
 
         fAuth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar);
@@ -77,11 +77,12 @@ public class Register extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Toast.makeText(Register.this, "User created", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
                         }else{
 
                             Toast.makeText(Register.this, "Error  " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
 
                         }
                     }
@@ -89,10 +90,10 @@ public class Register extends AppCompatActivity {
             }
         });
 
-        mLoginBtn.setOnClickListener(new View.OnClickListener() {
+        mLogRegBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),Login.class));
+                startActivity(new Intent(getApplicationContext(), Login.class));
 
             }
         });
